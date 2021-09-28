@@ -1,0 +1,11 @@
+.ShopTitle {
+  margin: 50px 0 20px 0;
+  text-align: center;
+}
+
+.productsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  align-items: center;
+  margin: 20px 0;
+}
