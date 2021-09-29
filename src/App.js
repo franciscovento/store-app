@@ -11,15 +11,15 @@ function App() {
   return (
     <>
     <Switch>
-    <Layout>
       <ProductsProvider >
-      <Route path='/' exact component={Home} />
-      <Route path='/login' component={Login} />
-      <Route path='/register' component={Register} />
-      <Route path='/shop' component={Shop}/>
-      <Route path='/cart' component={Cart} />
+        <Layout>
+          <Route path='/' exact component={Home} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
+          <Route path='/shop' component={Shop}/>
+          <Route path='/cart' component={Cart} />
+        </Layout>
       </ProductsProvider>
-    </Layout>
     </Switch>
     </>
   );

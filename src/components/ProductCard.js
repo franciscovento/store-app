@@ -13,7 +13,7 @@ const ProductCard = ({title, category, image, price, id, handleAddToCart}) => {
             <Card.Title>{title}</Card.Title>
             <Card.Subtitle className='fs-5'>$.{price}</Card.Subtitle>
             <Card.Text> <span><strong>category:</strong></span> {category}</Card.Text>
-            <Button onClick={()=>handleAddToCart(id, title, price)} variant="primary">Agregar al carrito</Button>
+            <Button onClick={()=>handleAddToCart(id, title, price, image)} variant="primary">Agregar al carrito</Button>
         </Card.Body>
         </Card>
   )
