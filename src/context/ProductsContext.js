@@ -1,38 +1,31 @@
-import { createContext } from "react";
-import { useState, useEffect } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import { getProductsApi } from "../services/getProductsApi";
-
+import { productsReducer } from '../reducers/productsReducer'
 const ProductsContext = createContext();
 
-
-
+const initialState = {
+    products: [],
+    cart: [],
+    showCart: false, 
+    total: 0
+}
 
 const ProductsProvider = ({children}) => {
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-    const [showCart, setShowCart] = useState(false);
-    const [total, setTotal] = useState(0);
+    
+    const [storeState, storeDispatch] = useReducer(productsReducer, initialState)
     
     useEffect(()=> {
         const getData = async () => {
             const data = await getProductsApi();
-            setProducts(data);
+            storeDispatch({type: "GET_PRODUCTS", payload: data})
         }
         getData();  
     },[]);
 
-const value = {
-  products,
-  cart,
-  setCart,
-  showCart,
-  setShowCart,
-  total,
-  setTotal
-}
+  
 
     return (
-        <ProductsContext.Provider value={value}>
+        <ProductsContext.Provider value={{storeState, storeDispatch}}>
             {children}
         </ProductsContext.Provider>
     )

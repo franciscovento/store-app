@@ -1,27 +1,27 @@
 
 
-const AddToCart = ({price, cantidad, title, image}) => {
+const AddToCart = ({price, qty, title, image, storeDispatch, id, cart}) => {
     
 
-    
+    const handleDeleteDispatch = (id, cart) => {
+      const newCart = cart.filter(x => x.id !== id);
+      const total = newCart.length > 0 ? newCart.map(x => x.qty * x.price).reduce((acc, el) => acc+ el): 0
+      storeDispatch({type: "REMOVE_FROM_CART", payload: {newCart, total} })
+    }
     
 
   return (
-    <div>
-      <div className='d-flex justify-content-between'>
-       <div className='d-flex align-items-center'>
-       <div>
-        <img style={{width: '30px', height:'20px', objectFit: 'contain'}} src={image} alt="imagen" />
-        </div>
-        <p>{cantidad} Und. </p>
-        <p>{title}</p> 
-       </div>
-        <p>{price}</p>
-      </div>
-      <div>
-      </div>
-    </div>
+    <>
+    <tr>
+      <th scope="row">{qty}</th>
+      <td><img style={{width: '30px', height:'20px', objectFit: 'contain'}} src={image} alt="imagen" /></td>
+      <td>{title}</td>
+      <td>${price}</td>
+      <td style={{cursor: "pointer"}} onClick={()=>{handleDeleteDispatch(id, cart)} }>x</td>
+    </tr>
+</>
   )
 }
 
 export default AddToCart
+
