@@ -19,7 +19,10 @@ const ChargedCart = ({cart, total, storeDispatch}) => {
 
   return (
     <div>
-      <h3 className='fs-4'>My Shop Cart</h3>
+     <div className='bg-primary p-2 text-white'>
+     <h3 className='fs-4'>Shop Cart</h3>
+      <p>You have {cart.length} products in your cart</p>
+     </div>
        <table className="table">
         <thead>
         <tr>
@@ -35,11 +38,12 @@ const ChargedCart = ({cart, total, storeDispatch}) => {
       }
       </tbody>
       </table>
-        <div>
-          <h5>amount: {cart.length} items </h5>
-          <h5>Total: ${total}</h5>
-          <button onClick={goToShop}>Continue shopping</button>
-          <button onClick={goToCheckout}>Go to Checkout</button>
+        <div >
+          <h5>Total to pay: ${total}</h5>
+          <div className='d-flex justify-content-between'>
+          <button   type="button" className="btn btn-secondary m-1"onClick={goToShop}>Continue shopping</button>
+          <button type="button" className="btn btn-primary m-1" onClick={goToCheckout}>Go to Checkout</button>
+          </div>
         </div>
       </div>
   )

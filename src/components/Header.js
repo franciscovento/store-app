@@ -25,16 +25,18 @@ const {storeState:{cart, showCart, total}, storeDispatch} = useContext(ProductsC
         <Nav className="me-auto">
         <Nav.Link as={Link} to='/shop' >Shop</Nav.Link>
         <Nav.Link as={Link} to='/register'>Register</Nav.Link>
+        <Nav.Link as={Link} to='/cart'>Total To Pay ${total}</Nav.Link>
         </Nav>
-        <Nav>
+        <Nav className='position-relative'>
         <Nav.Link as={Link} to='/login'>Login</Nav.Link>
-        <Button onClick={()=>storeDispatch({type: "SHOW_CART"})} >Cart</Button>
+        <Button  onClick={()=>storeDispatch({type: "SHOW_CART"})} >Cart</Button>
+        <button className='position-absolute top-100 start-100 translate-middle badge rounded-pill bg-danger'>{cart.length > 9? "9+": cart.length}</button>
         </Nav>
     </Navbar.Collapse>
     </Container>
     </Navbar>
     {showCart &&  <div className='MiCarrito fixed-top'>
-       <div className='MiCarrito-container'>
+       <div className='MiCarrito-container mb-5'>
       {cart.length === 0? <EmptyCart /> : <ChargedCart cart={cart} total={total} storeDispatch={storeDispatch}/> }
        </div>
       </div>}

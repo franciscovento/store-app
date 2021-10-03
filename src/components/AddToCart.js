@@ -1,4 +1,4 @@
-
+import { BsTrash} from 'react-icons/bs'
 
 const AddToCart = ({price, qty, title, image, storeDispatch, id, cart}) => {
     
@@ -17,7 +17,7 @@ const AddToCart = ({price, qty, title, image, storeDispatch, id, cart}) => {
       <td><img style={{width: '30px', height:'20px', objectFit: 'contain'}} src={image} alt="imagen" /></td>
       <td>{title}</td>
       <td>${price}</td>
-      <td style={{cursor: "pointer"}} onClick={()=>{handleDeleteDispatch(id, cart)} }>x</td>
+      <td style={{cursor: "pointer"}} onClick={()=>{handleDeleteDispatch(id, cart)} }> <BsTrash color='red' title='Delete item' /> </td>
     </tr>
 </>
   )
