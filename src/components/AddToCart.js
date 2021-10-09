@@ -10,10 +10,11 @@ const AddToCart = ({price, qty, title, image, storeDispatch, id, cart}) => {
     }
     
 
+    
   return (
     <>
     <tr>
-      <th scope="row">{qty}</th>
+      <th scope="row"> {qty} </th>
       <td><img style={{width: '30px', height:'20px', objectFit: 'contain'}} src={image} alt="imagen" /></td>
       <td>{title}</td>
       <td>${price}</td>

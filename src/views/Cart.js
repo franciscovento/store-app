@@ -10,7 +10,7 @@ const Cart = () => {
 
   return (
     <div className='mt-4'>
-    <h3 className='fs-4'>My Cart</h3>
+    <h3 className='fs-4 text-center pt-2 text-decoration-underline'>My Shop Cart</h3>
     {cart.length === 0? <EmptyCart /> : 
     <div>
     <table className="table">
@@ -29,10 +29,14 @@ const Cart = () => {
       </tbody>
     </table>
  <div>
+   <div className='d-flex justify-content-between pt-4'>
    <h5>Amount: {cart.length} items </h5>
    <h5>Total: ${total}</h5>
-          <Link to='/shop'>Go to shop</Link>
-          <Link to='/checkout'>Go to Checkout</Link>
+   </div>
+         <div className='d-flex justify-content-between pt-4'>
+         <Link className='btn btn-secondary' to='/shop'>Go to shop</Link>
+          <Link className='btn btn-primary' to='/checkout'>Go to Checkout</Link>
+         </div>
  </div>
 </div> }
     </div>   
